@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurora Cosméticos - A Sua Beleza Natural</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /*
+         * RESET BÁSICO E VARIÁVEIS CSS
+         */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --primary-color: #951872;
+            --secondary-color: #630c4a;
+            --text-dark: #990252;
+            --text-light: #fef8f4;
+            --bg-light: #FBF7F4;
+            --bg-dark: #EAE6E4;
+            --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            --transition-speed: 0.3s;
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            --border-radius: 8px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /*
+         * TELA DE BOAS-VINDAS (SPLASH SCREEN)
+         */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #splash-screen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #splash-screen .logo-text {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        #splash-screen .welcome-text {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--primary-color);
+            font-weight: 400;
+            text-align: center;
+            max-width: 80%;
+            margin-bottom: 30px;
+        }
+
+        #splash-screen .btn-enter {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 1em 2.5em;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background-color var(--transition-speed);
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+        
+        #splash-screen .btn-enter:hover {
+            background-color: var(--primary-color);
+        }
+
+        /*
+         * COMPONENTES REUTILIZÁVEIS
+         */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.9em 1.8em;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background-color var(--transition-speed), transform var(--transition-speed);
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+        }
+        
+        /*
+         * LAYOUT DA PÁGINA PRINCIPAL
+         */
+        .header {
+            background-color: var(--text-light);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header .logo {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .header .nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 400;
+            transition: color var(--transition-speed);
+        }
+    
+        .header .nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(251, 247, 244, 0.6), rgba(251, 247, 244, 0.6)), url('https://images.unsplash.com/photo-1596462747683-9b16ac45d947?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 8rem 1rem;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4em);
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+        }
+
+        /*
+         * ESTILOS PARA SEÇÕES ESPECÍFICAS
+         */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background-color: var(--text-light);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .product-card-content {
+            padding: 1.5rem 1rem;
+        }
+
+        .product-card h4 {
+            font-family: var(--font-display);
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-card .price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1em;
+            margin: 0;
+        }
+        
+        .commitment-section {
+            background-color: var(--bg-dark);
+            padding: 4rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .commitment-section .section-title {
+            color: var(--secondary-color);
+        }
+
+        .essence-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .essence-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .essence-section p {
+            max-width: 700px;
+            font-size: 1.1em;
+            color: var(--text-dark);
+        }
+
+        /* Nova seção de valores */
+        .values-section {
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background-color: var(--bg-dark);
+            padding: 2.5rem 1.5rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform var(--transition-speed);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+        
+        .value-card .icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .value-card h3 {
+            font-family: var(--font-display);
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Seção em destaque */
+        .featured-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 4rem 1rem;
+            background-color: var(--bg-dark);
+        }
+
+        .featured-section .featured-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            order: -1;
+        }
+
+        .featured-section .featured-content {
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .featured-section {
+                flex-direction: row;
+                text-align: left;
+            }
+            .featured-section .featured-image {
+                flex: 1;
+                order: 0;
+                min-width: 50%;
+            }
+            .featured-section .featured-content {
+                flex: 1;
+                padding-left: 2rem;
+                text-align: left;
+            }
+        }
+
+        /* Seção de FAQ */
+        .faq-section {
+            padding: 4rem 1rem;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #ddd;
+            padding: 1.5rem 0;
+        }
+
+        .faq-item h4 {
+            font-family: var(--font-display);
+            color: var(--secondary-color);
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item p {
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .faq-item.active p {
+            display: block;
+        }
+        
+        /* Seção de Newsletter */
+        .newsletter-section {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 4rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .newsletter-section h2, .newsletter-section p {
+            color: var(--text-light);
+        }
+
+        .newsletter-section .section-title::after {
+            background-color: var(--text-light);
+        }
+
+        .newsletter-form {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            padding: 1rem;
+            width: 100%;
+            max-width: 400px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter-form .btn {
+            background-color: var(--secondary-color);
+            padding: 1rem 2rem;
+        }
+        
+        /* Rodapé */
+        .footer {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 3rem 1.5rem;
+            margin-top: 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h4 {
+            font-family: var(--font-display);
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-social-icons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color var(--transition-speed);
+        }
+        
+        .footer-social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-weight: 300;
+        }
+        
+        /* ÍCONES FLUTUANTES E MODAIS (Mesmos do código anterior) */
+        .floating-icons-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
+        
+        .floating-button {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform var(--transition-speed), background-color var(--transition-speed);
+            border: none;
+            outline: none;
+        }
+
+        .floating-button:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 101;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease-in-out;
+        }
+        
+        .modal.is-visible {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 450px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        #weatherModal .modal-content { max-width: 500px; }
+        #chatModal .modal-content { max-width: 450px; }
+
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: transform var(--transition-speed);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+        
+        .weather-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: none;
+            transition: none;
+            text-align: center;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 12px 20px;
+            border: none;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .weather-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+        
+        .weather-icon {
+            font-size: 80px;
+            line-height: 1;
+        }
+
+        .temperature {
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin: 10px 0;
+        }
+
+        .description {
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            font-weight: 300;
+            margin: 5px 0;
+        }
+        
+        .details {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .detail-item {
+            text-align: center;
+        }
+
+        .detail-item strong {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .chat-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: none;
+            transition: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .chat-messages {
+            height: 350px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-right: 10px;
+        }
+        
+        .chat-messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background-color: #ddd;
+            border-radius: 10px;
+        }
+
+        .msg {
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 85%;
+            word-wrap: break-word;
+        }
+
+        .msg.bot {
+            background-color: #f0f2f5;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .msg.user {
+            background-color: #6C5B52;
+            color: var(--text-light);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+        }
+
+        .chat-input button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #421a30;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .modal-content {
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="splash-screen">
+        <h1 class="logo-text">Aurora</h1>
+        <p class="welcome-text">Bem-vindas e Bem-vindos à nossa jornada de beleza natural.</p>
+        <button class="btn-enter" id="enterSiteBtn">Entrar no Site</button>
+    </div>
+
+    <header class="header">
+        <a href="#" class="logo">Aurora</a>
+        <nav class="nav" aria-label="Navegação Principal">
+            <a href="#hero">Início</a>
+            <a href="#products">Produtos</a>
+            <a href="#values">Valores</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="container">
+                <h1>A Beleza da Natureza em Cada Gota.</h1>
+                <p>Nossa nova linha de cuidados para a pele e maquiagem é inspirada na essência da natureza, com fórmulas puras e ingredientes sustentáveis.</p>
+                <a href="#products" class="btn">Explorar Coleção</a>
+            </div>
+        </section>
+
+        <section class="container" id="essence">
+            <h2 class="section-title">Nossa Essência</h2>
+            <div class="essence-section">
+                <img src="https://images.unsplash.com/photo-1557053530-5893a2e37905?q=80&w=1500&auto=format&fit=crop" alt="Uma mulher em um campo de flores, representando a essência natural da marca.">
+                <p>Na **Aurora Cosméticos**, acreditamos que a verdadeira beleza vem da harmonia entre a pele e a natureza. Nossos produtos são criados com o máximo de cuidado, utilizando ingredientes botânicos de origem responsável. Cada fórmula é uma celebração da pureza e da eficácia, projetada para nutrir e revitalizar sua pele de forma consciente e delicada.</p>
+            </div>
+        </section>
+        
+        ---
+
+        <section class="container" id="values">
+            <h2 class="section-title">Por que Escolher a Aurora?</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Ingredientes Naturais</h3>
+                    <p>Fórmulas com extratos botânicos puros e de alta qualidade para nutrir sua pele de verdade.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-heart"></i></div>
+                    <h3>Cruelty-Free</h3>
+                    <p>Nenhum de nossos produtos é testado em animais. Amamos e respeitamos todos os seres vivos.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-recycle"></i></div>
+                    <h3>Embalagens Sustentáveis</h3>
+                    <p>Nosso compromisso com o planeta se reflete em nossas embalagens recicláveis e conscientes.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-spa"></i></div>
+                    <h3>Cuidado e Bem-Estar</h3>
+                    <p>Cada produto é uma experiência sensorial, pensada para trazer calma e bem-estar à sua rotina.</p>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="container" id="products">
+            <h2 class="section-title">Nossos Destaques</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="Hidratante corporal.jpg" alt="Hidratante Revitalizante">
+                    <div class="product-card-content">
+                        <h4>Hidratante Revitalizante</h4>
+                        <p class="price">R$ 89,90</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="Gloss Labial Radiante.jpg" alt="Gloss Labial Radiante">
+                    <div class="product-card-content">
+                        <h4>Gloss Labial Radiante</h4>
+                        <p class="price">R$ 49,90</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="Esfoliantecorporal.jpg" alt="Máscara Facial de Argila">
+                    <div class="product-card-content">
+                        <h4>Máscara Facial de Argila</h4>
+                        <p class="price">R$ 75,00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="PoCompacto.jpg" alt="Pó Compacto Leve">
+                    <div class="product-card-content">
+                        <h4>Pó Compacto Leve</h4>
+                        <p class="price">R$ 65,00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="serum-antissinais.jpg" alt="Sérum Anti-idade">
+                    <div class="product-card-content">
+                        <h4>Sérum Anti-idade</h4>
+                        <p class="price">R$ 120,00</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="Pinceis.jpg" alt="Kit de Pincéis Essenciais">
+                    <div class="product-card-content">
+                        <h4>Kit de Pincéis Essenciais</h4>
+                        <p class="price">R$ 99,90</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <section class="container featured-section">
+            <img class="featured-image" src="https://images.unsplash.com/photo-1544073570-8b01a243b999?q=80&w=1500&auto=format&fit=crop" alt="Destaque da linha de séruns faciais">
+            <div class="featured-content">
+                <h2 class="section-title" style="text-align: left;">Sérum Facial de Rosas</h2>
+                <p>Descubra o segredo de uma pele radiante com nosso Sérum Facial de Rosas. Feito com pétalas de rosa búlgaras, ele hidrata profundamente, acalma a pele sensível e combate os sinais do tempo. Uma essência de pura elegância para sua rotina de beleza.</p>
+                <a href="#" class="btn" style="margin-top: 1rem;">Comprar Agora</a>
+            </div>
+        </section>
+
+        ---
+
+        <section class="container faq-section" id="faq">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <div class="faq-item">
+                <h4>Nossos produtos são veganos?</h4>
+                <p>Nossos produtos são 100% cruelty-free (não testados em animais). A grande maioria é vegana, mas recomendamos que você verifique a descrição de cada produto para ter certeza.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Quais os prazos e custos de entrega?</h4>
+                <p>O prazo de entrega e o valor do frete variam de acordo com a sua localização. Você pode simular o valor e o prazo no carrinho de compras, inserindo o seu CEP.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Como posso saber qual produto é ideal para minha pele?</h4>
+                <p>Cada produto em nosso site possui uma descrição detalhada com os ingredientes, benefícios e tipos de pele recomendados. Se tiver mais dúvidas, nosso consultor virtual (no ícone de chat) pode te ajudar!</p>
+            </div>
+        </section>
+
+        ---
+
+        <section class="newsletter-section">
+            <div class="container">
+                <h2 class="section-title">Assine Nossa Newsletter</h2>
+                <p>Receba em primeira mão nossas novidades, ofertas exclusivas e dicas de beleza.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Seu e-mail" required>
+                    <button type="submit" class="btn">Cadastrar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <div class="floating-icons-container">
+        <button class="floating-button" id="openChatModalBtn" aria-label="Abrir Chat de Suporte">
+            <i class="fas fa-comments"></i>
+        </button>
+        <button class="floating-button" id="openWeatherModalBtn" aria-label="Abrir Clima e Consultor">
+            <i class="fas fa-cloud"></i>
+        </button>
+    </div>
+    
+    <div id="weatherModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close weather-close">&times;</span>
+            <div class="weather-card">
+                <div class="search-box">
+                    <input type="text" id="cityInput" placeholder="Digite uma cidade..." />
+                    <button onclick="getWeatherByCity()">Buscar</button>
+                </div>
+                <div class="weather-info" id="weatherInfo">
+                    <p>Carregando o clima da sua localização...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="chatModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close chat-close">&times;</span>
+            <div class="chat-card">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="msg bot">Olá! Que tal perguntar sobre a temperatura, umidade, ou vento?</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Sua pergunta..." />
+                    <button id="sendBtn">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Sobre a Aurora</h4>
+                    <p>Nossa missão é realçar sua beleza natural com produtos puros e inspirados na natureza, em harmonia com o meio ambiente.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Ajuda e Suporte</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegue</h4>
+                    <ul>
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#products">Produtos</a></li>
+                        <li><a href="#values">Valores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Siga a Gente</h4>
+                    <div class="footer-social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Aurora Cosméticos. Todos os direitos reservados. | <a href="#" style="color: var(--text-light);">Política de Privacidade</a> | <a href="#" style="color: var(--text-light);">Termos de Uso</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica da tela de boas-vindas
+        document.getElementById('enterSiteBtn').addEventListener('click', () => {
+            const splashScreen = document.getElementById('splash-screen');
+            splashScreen.classList.add('fade-out');
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+            }, 1000);
+        });
+        
+        // Lógica da seção de FAQ
+        const faqItems = document.querySelectorAll('.faq-item h4');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.parentElement.classList.toggle('active');
+            });
+        });
+
+        // Lógica dos Modais
+        const weatherModal = document.getElementById('weatherModal');
+        const chatModal = document.getElementById('chatModal');
+        const openWeatherModalBtn = document.getElementById('openWeatherModalBtn');
+        const openChatModalBtn = document.getElementById('openChatModalBtn');
+        const closeModalBtns = document.querySelectorAll('.modal-close');
+
+        function openModal(modal) {
+            modal.classList.add('is-visible');
+        }
+
+        function closeModal(modal) {
+            modal.classList.remove('is-visible');
+        }
+
+        openWeatherModalBtn.addEventListener('click', () => {
+            openModal(weatherModal);
+        });
+        
+        openChatModalBtn.addEventListener('click', () => {
+            openModal(chatModal);
+        });
+
+        closeModalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains('weather-close')) {
+                    closeModal(weatherModal);
+                } else if (btn.classList.contains('chat-close')) {
+                    closeModal(chatModal);
+                }
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === weatherModal) {
+                closeModal(weatherModal);
+            }
+            if (e.target === chatModal) {
+                closeModal(chatModal);
+            }
+        });
+
+        // Lógica do Clima
+        const apiKey = 'b1b15e88fa797225412429c1c50c122a1';
+        const weatherInfo = document.getElementById('weatherInfo');
+        const cityInput = document.getElementById('cityInput');
+        let currentWeatherData = null;
+
+        function getIcon(main) {
+            const icons = {
+                'rain': '🌧️',
+                'drizzle': '🌦️',
+                'thunderstorm': '⛈️',
+                'clouds': '☁️',
+                'clear': '☀️',
+                'snow': '❄️',
+                'mist': '🌫️',
+                'smoke': '🌫️',
+                'haze': '🌫️',
+                'fog': '🌫️',
+                'wind': '🌬️'
+            };
+            return icons[main.toLowerCase()] || '🌍';
+        }
+
+        function displayWeather(data) {
+            if (!data || (data.cod && Number(data.cod) !== 200)) {
+                weatherInfo.innerHTML = `<p>Não foi possível obter dados do clima para essa cidade.</p>`;
+                currentWeatherData = null;
+                return;
+            }
+            currentWeatherData = data;
+            const { name, main, weather, wind, sys } = data;
+            const temp = Math.round(main.temp);
+            const feelsLike = Math.round(main.feels_like);
+            const description = weather[0].description;
+            const mainWeather = weather[0].main;
+            const icon = getIcon(mainWeather);
+
+            weatherInfo.innerHTML = `
+                <div class="weather-icon">${icon}</div>
+                <div class="temperature">${temp}°C</div>
+                <div class="description">${description}</div>
+                <div class="location">${name}</div>
+                <div class="details">
+                    <div class="detail-item">Umidade<strong>${main.humidity}%</strong></div>
+                    <div class="detail-item">Vento<strong>${(wind.speed).toFixed(1)} m/s</strong></div>
+                    <div class="detail-item">Sensação Térmica<strong>${feelsLike}°C</strong></div>
+                </div>
+            `;
+        }
+    
+        async function fetchWeatherByCity(city) {
+            weatherInfo.innerHTML = `<p>Buscando clima para ${city}...</p>`;
+            try {
+                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=pt_br&units=metric`;
+                const res = await fetch(url);
+                const data = await res.json();
+                displayWeather(data);
+            } catch (error) {
+                weatherInfo.innerHTML = `<p>Erro ao buscar dados para ${city}.</p>`;
+            }
+        }
+    
+        async function fetchWeatherByCoords(lat, lon) {
+            weatherInfo.innerHTML = `<p>Carregando o clima da sua localização...</p>`;
+            try {
+                const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=pt_br&units=metric`;
+                const res = await fetch(url);
+                const data = await res.json();
+                displayWeather(data);
+            } catch (error) {
+                weatherInfo.innerHTML = `<p>Erro ao obter dados do clima.</p>`;
+            }
+        }
+
+        function getUserLocation() {
+            if (!navigator.geolocation) {
+                weatherInfo.innerHTML = `<p>Geolocalização não suportada. Tente em outro navegador.</p>`;
+                return;
+            }
+            navigator.geolocation.getCurrentPosition(
+                pos => {
+                    const { latitude, longitude } = pos.coords;
+                    fetchWeatherByCoords(latitude, longitude);
+                },
+                () => {
+                    weatherInfo.innerHTML = `<p>Não foi possível obter sua localização. Por favor, permita o acesso para o clima ou use a busca acima.</p>`;
+                }
+            );
+        }
+
+        // Lógica do Chat
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+
+        function addMessage(sender, text) {
+            const div = document.createElement('div');
+            div.className = `msg ${sender === 'user' ? 'user' : 'bot'}`;
+            div.textContent = text;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function respondToMessage(msg) {
+            if (!currentWeatherData) {
+                addMessage('bot', 'Ainda não tenho os dados do clima. Por favor, aguarde ou faça uma busca por uma cidade!');
+                return;
+            }
+
+            const text = msg.toLowerCase();
+            const { name, main, weather, wind } = currentWeatherData;
+            const temp = Math.round(main.temp);
+            const umidade = main.humidity;
+            const windSpeed = (wind.speed).toFixed(1);
+            const description = weather[0].description;
+            let response;
+        
+            if (text.includes("temperatura") || text.includes("quente") || text.includes("frio")) {
+                response = `A temperatura agora é ${temp}°C, com sensação térmica de ${Math.round(main.feels_like)}°C.`;
+            } else if (text.includes("chuva") || text.includes("chover")) {
+                const isRaining = weather.some(w => w.main.toLowerCase() === 'rain' || w.main.toLowerCase() === 'drizzle');
+                response = isRaining ? `Sim, está chovendo em ${name}. 🌧️` : `Não há previsão de chuva em ${name} no momento. O clima está com ${description}.`;
+            } else if (text.includes("umidade")) {
+                response = `A umidade relativa do ar em ${name} é de ${umidade}%. 💧`;
+            } else if (text.includes("vento")) {
+                response = `A velocidade do vento em ${name} é de ${windSpeed} m/s. 💨`;
+            } else if (text.includes("sol") || text.includes("ensolarado")) {
+                const isSunny = weather.some(w => w.main.toLowerCase() === 'clear');
+                response = isSunny ? `O sol está brilhando em ${name}! ☀️` : `Não está ensolarado em ${name} no momento. O clima está com ${description}.`;
+            } else {
+                response = `No momento, o clima em ${name} está com ${description}, com temperatura de ${temp}°C.`;
+            }
+        
+            setTimeout(() => addMessage('bot', response), 500);
+        }
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            addMessage('user', text);
+            respondToMessage(text);
+            chatInput.value = '';
+        }
+
+        function getWeatherByCity() {
+            const city = cityInput.value.trim();
+            if (city) {
+                fetchWeatherByCity(city);
+            }
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    
+        cityInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') getWeatherByCity();
+        });
+        
+        weatherModal.addEventListener('transitionend', (e) => {
+            if (weatherModal.classList.contains('is-visible') && !currentWeatherData) {
+                getUserLocation();
+            }
+        });
+    </script>
+</body>
+</html>
