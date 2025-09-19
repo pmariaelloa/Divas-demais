@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aurora Cosméticos - A Sua Beleza Natural</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /*
          * RESET BÁSICO E VARIÁVEIS CSS
          */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -33,7 +38,7 @@
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             font-family: var(--font-body);
             background-color: var(--bg-light);
@@ -97,7 +102,7 @@
             border: none;
             cursor: pointer;
         }
-        
+
         #splash-screen .btn-enter:hover {
             background-color: var(--primary-color);
         }
@@ -146,7 +151,7 @@
             background-color: var(--primary-color);
             margin: 0.5rem auto 0;
         }
-        
+
         /*
          * LAYOUT DA PÁGINA PRINCIPAL
          */
@@ -158,7 +163,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .header .logo {
             font-family: var(--font-display);
             font-size: 2.5rem;
@@ -166,7 +171,7 @@
             color: var(--secondary-color);
             text-decoration: none;
         }
-        
+
         .header .nav a {
             color: var(--secondary-color);
             text-decoration: none;
@@ -174,7 +179,7 @@
             font-weight: 400;
             transition: color var(--transition-speed);
         }
-    
+
         .header .nav a:hover {
             color: var(--primary-color);
         }
@@ -186,15 +191,15 @@
             text-align: center;
             padding: 8rem 1rem;
         }
-        
+
         .hero h1 {
             font-family: var(--font-display);
             font-size: clamp(3rem, 8vw, 5.5rem);
             color: var(--secondary-color);
             margin-bottom: 0.5rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero p {
             font-size: clamp(1.1rem, 2.5vw, 1.4em);
             color: var(--text-dark);
@@ -211,7 +216,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
-        
+
         .product-card {
             background-color: var(--text-light);
             border-radius: var(--border-radius);
@@ -220,18 +225,18 @@
             text-align: center;
             transition: transform var(--transition-speed), box-shadow var(--transition-speed);
         }
-        
+
         .product-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
         .product-card img {
             width: 100%;
             height: 250px;
             object-fit: cover;
         }
-        
+
         .product-card-content {
             padding: 1.5rem 1rem;
         }
@@ -242,14 +247,14 @@
             margin-top: 0;
             margin-bottom: 0.5rem;
         }
-        
+
         .product-card .price {
             font-weight: 700;
             color: var(--primary-color);
             font-size: 1.1em;
             margin: 0;
         }
-        
+
         .commitment-section {
             background-color: var(--bg-dark);
             padding: 4rem;
@@ -257,7 +262,7 @@
             text-align: center;
             margin-top: 3rem;
         }
-        
+
         .commitment-section .section-title {
             color: var(--secondary-color);
         }
@@ -296,7 +301,7 @@
             gap: 2rem;
             margin-top: 3rem;
         }
-        
+
         .value-card {
             background-color: var(--bg-dark);
             padding: 2.5rem 1.5rem;
@@ -311,19 +316,19 @@
             transform: translateY(-8px);
             box-shadow: var(--shadow);
         }
-        
+
         .value-card .icon {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
-        
+
         .value-card h3 {
             font-family: var(--font-display);
             color: var(--secondary-color);
             margin-bottom: 0.5rem;
         }
-        
+
         /* Seção em destaque */
         .featured-section {
             display: flex;
@@ -345,17 +350,19 @@
         .featured-section .featured-content {
             text-align: center;
         }
-        
+
         @media (min-width: 768px) {
             .featured-section {
                 flex-direction: row;
                 text-align: left;
             }
+
             .featured-section .featured-image {
                 flex: 1;
                 order: 0;
                 min-width: 50%;
             }
+
             .featured-section .featured-content {
                 flex: 1;
                 padding-left: 2rem;
@@ -367,7 +374,7 @@
         .faq-section {
             padding: 4rem 1rem;
         }
-        
+
         .faq-item {
             border-bottom: 1px solid #ddd;
             padding: 1.5rem 0;
@@ -384,11 +391,11 @@
             margin-top: 1rem;
             display: none;
         }
-        
+
         .faq-item.active p {
             display: block;
         }
-        
+
         /* Seção de Newsletter */
         .newsletter-section {
             background-color: var(--primary-color);
@@ -397,8 +404,9 @@
             padding: 4rem 1rem;
             margin-top: 3rem;
         }
-        
-        .newsletter-section h2, .newsletter-section p {
+
+        .newsletter-section h2,
+        .newsletter-section p {
             color: var(--text-light);
         }
 
@@ -426,7 +434,7 @@
             background-color: var(--secondary-color);
             padding: 1rem 2rem;
         }
-        
+
         /* Rodapé */
         .footer {
             background-color: var(--secondary-color);
@@ -434,25 +442,25 @@
             padding: 3rem 1.5rem;
             margin-top: 0;
         }
-        
+
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         .footer-column h4 {
             font-family: var(--font-display);
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
-        
+
         .footer-column ul {
             list-style: none;
             padding: 0;
         }
-        
+
         .footer-column ul li a {
             color: var(--text-light);
             text-decoration: none;
@@ -460,27 +468,27 @@
             margin-bottom: 0.5rem;
             display: block;
         }
-        
+
         .footer-column ul li a:hover {
             color: var(--primary-color);
         }
-        
+
         .footer-social-icons {
             display: flex;
             gap: 1.5rem;
             margin-top: 1rem;
         }
-        
+
         .footer-social-icons a {
             color: var(--text-light);
             font-size: 1.5rem;
             transition: color var(--transition-speed);
         }
-        
+
         .footer-social-icons a:hover {
             color: var(--primary-color);
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
@@ -491,7 +499,7 @@
             margin: 0;
             font-weight: 300;
         }
-        
+
         /* ÍCONES FLUTUANTES E MODAIS (Mesmos do código anterior) */
         .floating-icons-container {
             position: fixed;
@@ -502,7 +510,7 @@
             gap: 1rem;
             z-index: 100;
         }
-        
+
         .floating-button {
             width: 60px;
             height: 60px;
@@ -533,18 +541,18 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity var(--transition-speed) ease-in-out;
         }
-        
+
         .modal.is-visible {
             display: flex;
             opacity: 1;
         }
-        
+
         .modal-content {
             background-color: var(--bg-light);
             padding: 20px;
@@ -557,9 +565,14 @@
             flex-direction: column;
             position: relative;
         }
-        
-        #weatherModal .modal-content { max-width: 500px; }
-        #chatModal .modal-content { max-width: 450px; }
+
+        #weatherModal .modal-content {
+            max-width: 500px;
+        }
+
+        #chatModal .modal-content {
+            max-width: 450px;
+        }
 
 
         .modal-close {
@@ -576,7 +589,7 @@
         .modal-close:hover {
             transform: rotate(90deg);
         }
-        
+
         .weather-card {
             background-color: var(--card-bg);
             border-radius: 20px;
@@ -585,13 +598,13 @@
             transition: none;
             text-align: center;
         }
-        
+
         .search-box {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
         }
-        
+
         .search-box input {
             flex: 1;
             padding: 12px 20px;
@@ -616,7 +629,7 @@
             justify-content: center;
             min-height: 250px;
         }
-        
+
         .weather-icon {
             font-size: 80px;
             line-height: 1;
@@ -635,7 +648,7 @@
             font-weight: 300;
             margin: 5px 0;
         }
-        
+
         .details {
             display: flex;
             justify-content: space-around;
@@ -673,7 +686,7 @@
             gap: 10px;
             padding-right: 10px;
         }
-        
+
         .chat-messages::-webkit-scrollbar {
             width: 8px;
         }
@@ -724,7 +737,7 @@
             border-radius: 50px;
             cursor: pointer;
         }
-        
+
         @media (min-width: 768px) {
             .modal-content {
                 max-width: 500px;
@@ -732,7 +745,262 @@
         }
     </style>
 </head>
+
 <body>
+      <!-- Modal de confirmação -->
+      <div id="confirmModal">
+        <div class="modal-content">
+          <span id="modalClose" class="modal-close">&times;</span>
+          <p id="confirmMessage">Tem certeza que deseja remover?</p>
+          <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+            <button id="confirmYes" class="btn" style="background-color: #c0392b;">Sim</button>
+            <button id="confirmNo" class="btn" style="background-color: #7f8c8d;">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    <div class="divusuarios container">
+        <h2 class="section-title">Gerenciar Usuários</h2>
+      
+        <form id="userForm" class="user-form">
+          <input type="text" id="username" placeholder="Novo nome de usuário" required />
+          <button type="submit" class="btn">Adicionar Usuário</button>
+        </form>
+      
+        <ul id="userList" class="user-list"></ul>
+      </div>
+      
+      <style>
+        .remove-btn {
+          float: right;
+          background-color: #e74c3c;
+          color: white;
+          border: none;
+          border-radius: var(--border-radius);
+          padding: 0.4rem 0.8rem;
+          cursor: pointer;
+          font-size: 0.9rem;
+          transition: background-color 0.3s;
+        }
+      
+        .remove-btn:hover {
+          background-color: #c0392b;
+        }
+      
+        #confirmModal {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          justify-content: center;
+          align-items: center;
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+        }
+      
+        #confirmModal.is-visible {
+          display: flex;
+          opacity: 1;
+        }
+      
+        #confirmModal .modal-content {
+          background-color: var(--text-light);
+          padding: 2rem;
+          border-radius: 10px;
+          width: 90%;
+          max-width: 400px;
+          box-shadow: var(--shadow);
+          position: relative;
+          text-align: center;
+        }
+      
+        #confirmModal .modal-close {
+          position: absolute;
+          top: 15px;
+          right: 20px;
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: var(--secondary-color);
+          cursor: pointer;
+        }
+      
+        .divusuarios {
+          background-color: var(--text-light);
+          border-radius: var(--border-radius);
+          padding: 2rem;
+          box-shadow: var(--shadow);
+          margin-top: 3rem;
+          margin-bottom: 2rem;
+        }
+      
+        .user-form {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-bottom: 2rem;
+        }
+      
+        .user-form input[type="text"] {
+          flex: 1;
+          padding: 0.8rem;
+          border-radius: var(--border-radius);
+          border: 1px solid #ccc;
+          font-size: 1rem;
+          font-family: var(--font-body);
+        }
+      
+        .user-form button {
+          padding: 0.8rem 1.5rem;
+          background-color: var(--secondary-color);
+          color: var(--text-light);
+          border: none;
+          border-radius: var(--border-radius);
+          font-weight: bold;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: background-color var(--transition-speed);
+        }
+      
+        .user-form button:hover {
+          background-color: var(--primary-color);
+        }
+      
+        .user-list {
+          list-style: none;
+          padding-left: 0;
+          margin-top: 1rem;
+        }
+      
+        .user-list li {
+          background-color: var(--bg-dark);
+          padding: 0.75rem 1rem;
+          border-radius: var(--border-radius);
+          margin-bottom: 0.5rem;
+          box-shadow: var(--shadow);
+          font-family: var(--font-body);
+          color: var(--secondary-color);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      </style>
+      
+      <script>
+        const userList = document.getElementById('userList');
+        const userForm = document.getElementById('userForm');
+        const usernameInput = document.getElementById('username');
+      
+        const confirmModal = document.getElementById('confirmModal');
+        const confirmMessage = document.getElementById('confirmMessage');
+        const confirmYes = document.getElementById('confirmYes');
+        const confirmNo = document.getElementById('confirmNo');
+        const modalClose = document.getElementById('modalClose');
+      
+        let userToDelete = null;
+      
+        // Carregar usuários
+        async function loadUsers() {
+          try {
+            const res = await fetch('/usuarios');
+            const users = await res.json();
+      
+            userList.innerHTML = '';
+      
+            users.forEach(user => {
+              const li = document.createElement('li');
+              li.innerHTML = `
+                ${user.username || '[sem nome]'}
+                <button class="remove-btn" data-username="${user.username}">Remover</button>
+              `;
+              userList.appendChild(li);
+            });
+      
+            // Adicionar evento aos botões de remover
+            document.querySelectorAll('.remove-btn').forEach(button => {
+              button.addEventListener('click', () => {
+                userToDelete = button.dataset.username;
+                openModaluser(userToDelete);
+              });
+            });
+      
+          } catch (err) {
+            alert('Erro ao carregar usuários.');
+            console.error(err);
+          }
+        }
+      
+        // Adicionar usuário
+        userForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const username = usernameInput.value.trim();
+          if (!username) return;
+      
+          try {
+            const res = await fetch('/usuario', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username })
+            });
+      
+            const result = await res.json();
+      
+            if (res.ok) {
+              usernameInput.value = '';
+              loadUsers();
+            } else {
+              alert('Erro: ' + (result.error || 'Erro ao adicionar usuário'));
+            }
+          } catch (err) {
+            alert('Erro ao adicionar usuário');
+            console.error(err);
+          }
+        });
+      
+        // Abrir modal
+        function openModaluser(username) {
+          confirmMessage.textContent = `Remover o usuário "${username}"?`;
+          confirmModal.classList.add('is-visible');
+        }
+      
+        // Fechar modal
+        function closeModaluser() {
+          confirmModal.classList.remove('is-visible');
+          userToDelete = null;
+        }
+      
+        // Confirmar exclusão
+        confirmYes.addEventListener('click', async () => {
+          if (!userToDelete) return;
+      
+          try {
+            const res = await fetch(`/usuario/${userToDelete}`, {
+              method: 'DELETE'
+            });
+      
+            if (res.ok) {
+              loadUsers();
+            } else {
+              alert('Erro ao remover usuário');
+            }
+          } catch (err) {
+            alert('Erro ao remover usuário');
+            console.error(err);
+          }
+      
+          closeModaluser();
+        });
+      
+        // Cancelar exclusão
+        confirmNo.addEventListener('click', closeModaluser);
+        modalClose.addEventListener('click', closeModaluser);
+      
+        // Iniciar
+        loadUsers();
+      </script>
+      
     <div id="splash-screen">
         <h1 class="logo-text">Aurora</h1>
         <p class="welcome-text">Bem-vindas e Bem-vindos à nossa jornada de beleza natural.</p>
@@ -754,7 +1022,8 @@
         <section class="hero" id="hero">
             <div class="container">
                 <h1>A Beleza da Natureza em Cada Gota.</h1>
-                <p>Nossa nova linha de cuidados para a pele e maquiagem é inspirada na essência da natureza, com fórmulas puras e ingredientes sustentáveis.</p>
+                <p>Nossa nova linha de cuidados para a pele e maquiagem é inspirada na essência da natureza, com
+                    fórmulas puras e ingredientes sustentáveis.</p>
                 <a href="#products" class="btn">Explorar Coleção</a>
             </div>
         </section>
@@ -762,11 +1031,15 @@
         <section class="container" id="essence">
             <h2 class="section-title">Nossa Essência</h2>
             <div class="essence-section">
-                <img src="https://images.unsplash.com/photo-1557053530-5893a2e37905?q=80&w=1500&auto=format&fit=crop" alt="Uma mulher em um campo de flores, representando a essência natural da marca.">
-                <p>Na **Aurora Cosméticos**, acreditamos que a verdadeira beleza vem da harmonia entre a pele e a natureza. Nossos produtos são criados com o máximo de cuidado, utilizando ingredientes botânicos de origem responsável. Cada fórmula é uma celebração da pureza e da eficácia, projetada para nutrir e revitalizar sua pele de forma consciente e delicada.</p>
+                <img src="https://images.unsplash.com/photo-1557053530-5893a2e37905?q=80&w=1500&auto=format&fit=crop"
+                    alt="Uma mulher em um campo de flores, representando a essência natural da marca.">
+                <p>Na **Aurora Cosméticos**, acreditamos que a verdadeira beleza vem da harmonia entre a pele e a
+                    natureza. Nossos produtos são criados com o máximo de cuidado, utilizando ingredientes botânicos de
+                    origem responsável. Cada fórmula é uma celebração da pureza e da eficácia, projetada para nutrir e
+                    revitalizar sua pele de forma consciente e delicada.</p>
             </div>
         </section>
-        
+
         ---
 
         <section class="container" id="values">
@@ -848,10 +1121,14 @@
         ---
 
         <section class="container featured-section">
-            <img class="featured-image" src="https://images.unsplash.com/photo-1544073570-8b01a243b999?q=80&w=1500&auto=format&fit=crop" alt="Destaque da linha de séruns faciais">
+            <img class="featured-image"
+                src="https://images.unsplash.com/photo-1544073570-8b01a243b999?q=80&w=1500&auto=format&fit=crop"
+                alt="Destaque da linha de séruns faciais">
             <div class="featured-content">
                 <h2 class="section-title" style="text-align: left;">Sérum Facial de Rosas</h2>
-                <p>Descubra o segredo de uma pele radiante com nosso Sérum Facial de Rosas. Feito com pétalas de rosa búlgaras, ele hidrata profundamente, acalma a pele sensível e combate os sinais do tempo. Uma essência de pura elegância para sua rotina de beleza.</p>
+                <p>Descubra o segredo de uma pele radiante com nosso Sérum Facial de Rosas. Feito com pétalas de rosa
+                    búlgaras, ele hidrata profundamente, acalma a pele sensível e combate os sinais do tempo. Uma
+                    essência de pura elegância para sua rotina de beleza.</p>
                 <a href="#" class="btn" style="margin-top: 1rem;">Comprar Agora</a>
             </div>
         </section>
@@ -862,15 +1139,19 @@
             <h2 class="section-title">Perguntas Frequentes</h2>
             <div class="faq-item">
                 <h4>Nossos produtos são veganos?</h4>
-                <p>Nossos produtos são 100% cruelty-free (não testados em animais). A grande maioria é vegana, mas recomendamos que você verifique a descrição de cada produto para ter certeza.</p>
+                <p>Nossos produtos são 100% cruelty-free (não testados em animais). A grande maioria é vegana, mas
+                    recomendamos que você verifique a descrição de cada produto para ter certeza.</p>
             </div>
             <div class="faq-item">
                 <h4>Quais os prazos e custos de entrega?</h4>
-                <p>O prazo de entrega e o valor do frete variam de acordo com a sua localização. Você pode simular o valor e o prazo no carrinho de compras, inserindo o seu CEP.</p>
+                <p>O prazo de entrega e o valor do frete variam de acordo com a sua localização. Você pode simular o
+                    valor e o prazo no carrinho de compras, inserindo o seu CEP.</p>
             </div>
             <div class="faq-item">
                 <h4>Como posso saber qual produto é ideal para minha pele?</h4>
-                <p>Cada produto em nosso site possui uma descrição detalhada com os ingredientes, benefícios e tipos de pele recomendados. Se tiver mais dúvidas, nosso consultor virtual (no ícone de chat) pode te ajudar!</p>
+                <p>Cada produto em nosso site possui uma descrição detalhada com os ingredientes, benefícios e tipos de
+                    pele recomendados. Se tiver mais dúvidas, nosso consultor virtual (no ícone de chat) pode te ajudar!
+                </p>
             </div>
         </section>
 
@@ -887,7 +1168,7 @@
             </div>
         </section>
     </main>
-    
+
     <div class="floating-icons-container">
         <button class="floating-button" id="openChatModalBtn" aria-label="Abrir Chat de Suporte">
             <i class="fas fa-comments"></i>
@@ -896,7 +1177,7 @@
             <i class="fas fa-cloud"></i>
         </button>
     </div>
-    
+
     <div id="weatherModal" class="modal">
         <div class="modal-content">
             <span class="modal-close weather-close">&times;</span>
@@ -911,7 +1192,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="chatModal" class="modal">
         <div class="modal-content">
             <span class="modal-close chat-close">&times;</span>
@@ -932,7 +1213,8 @@
             <div class="footer-grid">
                 <div class="footer-column">
                     <h4>Sobre a Aurora</h4>
-                    <p>Nossa missão é realçar sua beleza natural com produtos puros e inspirados na natureza, em harmonia com o meio ambiente.</p>
+                    <p>Nossa missão é realçar sua beleza natural com produtos puros e inspirados na natureza, em
+                        harmonia com o meio ambiente.</p>
                 </div>
                 <div class="footer-column">
                     <h4>Ajuda e Suporte</h4>
@@ -960,7 +1242,9 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Aurora Cosméticos. Todos os direitos reservados. | <a href="#" style="color: var(--text-light);">Política de Privacidade</a> | <a href="#" style="color: var(--text-light);">Termos de Uso</a></p>
+                <p>&copy; 2024 Aurora Cosméticos. Todos os direitos reservados. | <a href="#"
+                        style="color: var(--text-light);">Política de Privacidade</a> | <a href="#"
+                        style="color: var(--text-light);">Termos de Uso</a></p>
             </div>
         </div>
     </footer>
@@ -974,7 +1258,7 @@
                 splashScreen.style.display = 'none';
             }, 1000);
         });
-        
+
         // Lógica da seção de FAQ
         const faqItems = document.querySelectorAll('.faq-item h4');
         faqItems.forEach(item => {
@@ -1001,7 +1285,7 @@
         openWeatherModalBtn.addEventListener('click', () => {
             openModal(weatherModal);
         });
-        
+
         openChatModalBtn.addEventListener('click', () => {
             openModal(chatModal);
         });
@@ -1074,7 +1358,7 @@
                 </div>
             `;
         }
-    
+
         async function fetchWeatherByCity(city) {
             weatherInfo.innerHTML = `<p>Buscando clima para ${city}...</p>`;
             try {
@@ -1086,7 +1370,7 @@
                 weatherInfo.innerHTML = `<p>Erro ao buscar dados para ${city}.</p>`;
             }
         }
-    
+
         async function fetchWeatherByCoords(lat, lon) {
             weatherInfo.innerHTML = `<p>Carregando o clima da sua localização...</p>`;
             try {
@@ -1141,7 +1425,7 @@
             const windSpeed = (wind.speed).toFixed(1);
             const description = weather[0].description;
             let response;
-        
+
             if (text.includes("temperatura") || text.includes("quente") || text.includes("frio")) {
                 response = `A temperatura agora é ${temp}°C, com sensação térmica de ${Math.round(main.feels_like)}°C.`;
             } else if (text.includes("chuva") || text.includes("chover")) {
@@ -1157,7 +1441,7 @@
             } else {
                 response = `No momento, o clima em ${name} está com ${description}, com temperatura de ${temp}°C.`;
             }
-        
+
             setTimeout(() => addMessage('bot', response), 500);
         }
 
@@ -1180,11 +1464,11 @@
         chatInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') sendMessage();
         });
-    
+
         cityInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') getWeatherByCity();
         });
-        
+
         weatherModal.addEventListener('transitionend', (e) => {
             if (weatherModal.classList.contains('is-visible') && !currentWeatherData) {
                 getUserLocation();
@@ -1192,4 +1476,5 @@
         });
     </script>
 </body>
+
 </html>
